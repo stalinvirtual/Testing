@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="En">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma Design</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="myController.js"></script>
+
+</head>
+
+<body>
+    <section id="first-page"  ng-app="firstPage">
+    <div ng-controller="firstpageController">
+     
+      <div ng-show="isVisible">
+        <div class="add">
+            <a href=""  id="add-mem-opt" ng-click="ShowHide()">
+                <img src="images/plus.png" alt="Add Icon" id="plus">
+                <label class="add_member">&nbsp;&nbsp;Add Membership Options</label>
+            </a>
+        </div>
+        <div class="members-list" id="mem-list-add">
+            <div class="left-content">
+                <h2 id="mem-name">
+                    <img src="images/draggle.png" class="draggle" alt="Draggle Icon">
+                    Yoga Pass Gold
+                </h2>
+            </div>
+            <div class="right-content">
+                <label>
+                    <input type="checkbox" class="checkbox" />
+                    <span class="private">&nbsp;Make Private</span>
+                    <span>
+                        <img src="images/question.png" alt="question icon" id="question">
+                    </span>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="member-status" id="mem-list-add-status">
+            <p> Active Members:<strong>10</strong></p>
+            <p>Members On Hold:<strong>0</strong></p>
+        </div>
+        <div class="action">
+            <a href="" class="action-icon" id="edit-mem-opt" ng-click="ShowHide()">
+                <img src="images/edit.png" alt="Edit Icon"></a>
+            <a href="" class="action-icon">
+                <img src="images/delete.png" alt="Delete Icon"></a>
+            <a href="" class="action-icon duplicate">
+                <img src="images/duplicate.png" alt="Duplicate Icon"></a>
+        </div>
+        </div>
+    
+<!-- ------------------------------------------------- -->
+
+    <div  ng-show = "notVisible">
+      <div class="row">
+          <div class="col-lg-1"> </div>
+          <div class="col-lg-7 ">
+            <div id="main">
+              <!-- mobile view --------------------->
+              <div class="mobile-content">
+                <div class="mobile-head">
+                  <i class="fa fa-angle-left" id="left-icon"></i>
+                  <p class="heading"><b>AFTER SCHOOL</b></p>
+                </div>
+                <div class="mobile-head">
+                  <a href="" class="opt">DETAILS</a>
+                  <a href="" class="opt">LEVELS/RANKS</a>
+                  <a href="" class="opt" id="mem-opt"> MEMBERSHIP OPTIONS</a>
+                </div>
+              </div>
+              <!-- Details -------------------------->
+              <div class="container-fluid" id="details-form">
+                <a href="" id="details-label" ng-click="detailsLabel()">
+                <div class="membership-edit detail-edit" id="detail-mem">
+                  <div class="edit-label">
+                    &nbsp;&nbsp;<b>STEP 1 &nbsp;&nbsp;DETAILS</b>
+                    <span class="dropdown-icon" id="drop-detail">
+                      <img src="images/dropdown-icon.png" alt="Dropdown Icon">
+                    </span>
+                  </div>
+                </div>
+              </a>
+                <div ng-show="details">
+                  <div class="edit-form">
+                    <div class="row">
+                      <div class="col-12 ">
+                        <form class="form1" id="form1" method="POST"><br>
+                          <div class="col-6">
+                            <label for="title" class="membership-title"><b>Membership Title</b></label>
+                            <div>
+                              <input type="text" class="form-control" id="membership-title" placeholder="Give it a short distinct name" required=""
+                                value="Yoga Pass Gold">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="col-6">
+                            <label for="title" class="membership-subtitle"><b>Membership Subtitle</b></label>
+                            <div>
+                              <input type="text" class="form-control" id="membership-subtitle"placeholder="Give it a short distinct name" required=""
+                                value="All Access to All Yoga Classes">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="col-6">
+                            <label class="membership-option"><b>Membership Option URL</b>
+                              <span class="span-question">
+                                <img src="images/question.png" alt="question icon">
+                              </span>
+                            </label>
+                            <div>
+                              <a href="https://cp-dev.mystudio.io/m/?=9wXMAM/6826/28787//1673793164"
+                                id="url"><b>https://cp-dev.mystudio.io/m/?=9wXMAM/6826/28787//1673793164</b></a>
+                              <a href="" class="action-icon url-action">
+                                <img src="images/duplicate.png" alt="Duplicate Icon">
+                              </a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-12">
+                        <label class="mem-description"><b>Membership Description</b></label>
+                        <div class="col-3">
+                          <div class="style-font">
+                            <button type="button" title="bold" class="btn btn-light mob-size">
+                              <i class="fa fa-bold"></i>
+                            </button>
+                            <button type="button" title="italic" class="btn btn-light mob-size">
+                              <i class="fa fa-italic"></i>
+                            </button>
+                          </div>
+                          <div class="size-font">
+                            <select title="select" class="form-select form-control formatter-size mob-size minimal" id="font">
+                              <option>10px</option>
+                              <option selected="selected">13px</option>
+                              <option>16px</option>
+                              <option>18px</option>
+                              <option>24px</option>
+                              <option>32px</option>
+                              <option>48px</option>
+                            </select> 
+                          </div>
+                          <div class="list-style">
+                            <button type="button" title="ol" class="btn btn-light formatter-ol mob-size">
+                              <i class="fa fa-list-ol"></i>
+                            </button>
+                            <button type="button" title="ul" class="btn btn-light formatter-ul mob-size">
+                              <i class="fa fa-list-ul"></i>
+                            </button>
+                          </div>
+                          <div class="link-style">
+                            <button type="button" title="link" class="btn btn-light mob-size"><i class="fa fa-link"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="textarea"  contenteditable="true">
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- payment-------------------------------- -->
+              <div class="container-fluid" id="payment-form">
+                <a href="" id="payment-label" ng-click="paymentLabel()">
+                <div class="membership-edit" id="payment-mem" >
+                  <div class="edit-label">
+                    &nbsp;&nbsp;<b>STEP 2 &nbsp;&nbsp;PAYMENT</b> 
+                        <span class="dropdown-icon" id="drop-payment">
+                          <img src="images/dropdown-icon.png" alt="Dropdown Icon">
+                        </span>
+                  </div>
+                </div>
+              </a>
+                <div  ng-show="payment">
+                  <div class="edit-form" id="edit-payment-form">
+                    <div class="payment-fields">
+                      <form class="form2">
+                        
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="col-6">
+                                <div class="label structure-label">
+                                  <label for="structure-button"><b>Structure</b>
+                                    <span class="span-question"> <img src="images/question.png" alt="question icon"> </span>
+                                  </label>
+      
+                                  <select title="select" class="form-select mt-3 form-control minimal" id="structure"
+                                    onchange="fieldshow(this)">
+                                    <option value="Open enrollment">Open enrollment</option>
+                                    <option value="Custom">Custom</option>
+                                    <option value="Has specific start and end">Has specific start and end</option>
+                                    <option value="Class packages">Class packages</option>
+                                  </select>
+      
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="label billing-label" id="billing">
+                                  <label for="structure-button">Billing Options</label>
+                                  <select title="select" class="form-select mt-3 form-control minimal">
+                                    <option>Billing Plans</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="col-6">
+                                <div class="label signup-label">
+                                  <label for="signup-text">Sign-up Fee
+                                    <span class="span-question">
+                                      <img src="images/question.png" alt="question icon">
+                                    </span>
+                                  </label>
+                                  <br>
+                                  <div class="input-group">
+                                    <span class="input-group-text bg-white" id="basic-addon1 signup-text">$</span>
+                                    <input type="text" class="form-control form-border" placeholder="30.00">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="label chargesignup-label">
+                                  <label for="chargesignup-button">Charge Sign-up Fee </label>
+                                  <select title="select" class="form-select mt-3 form-control minimal">
+                                    <option>At time of registration</option>
+                                    <option>On membership start date</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6">
+                              <div class="label membershipfee-label">
+                                <label for="membershipfee-text">Membership Fee
+                                  <span class="span-question">
+                                    <img src="images/question.png" alt="question icon"> </span>
+                                </label>
+                                <div class="input-group" id="membershipfee-text">
+                                  <span class="input-group-text bg-white" id="basic-addon1"> $ </span>
+                                  <input type="text" class="form-control form-border" placeholder="30.00">
+                                </div><br>
+                                <div>
+                                  <p class="membershipfee-info" id="member-info">Customer total:$30.66 Net Gross:$30.00 </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="recurringpaymentfrequency-label">
+                                <label for="recurring-text">
+                                  <strong>Recurring Payment Frequency</strong>
+                                </label>
+                                <select title="select" class="form-select mt-3 form-control minimal" id="recurring-select">
+                                  <option>Monthly</option>
+                                  <option>Weekly</option>
+                                  <option>Annualy</option>
+                                  <option>Custom</option>
+                                </select>
+                                <input type="text" class="form-control recurring-input" id="recurring-input" placeholder="12">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6">
+                              <div class="chargefirstpayment-label">
+                                <label for="charge-first-payment-text">
+                                  <strong>Charge First Payment</strong>
+                                </label>
+                                <select title="select"
+                                  class="form-select mt-3 chargefirstpayment-select form-control minimal">
+                                  <option>At time of registration</option>
+                                  <option>At program start date</option>
+                                  <option>Select program start date</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="label delaypayment-label">
+                                <label>Delay Payment Start Date
+                                  <span class="span-question">
+                                    <img src="images/question.png" alt="question icon">
+                                  </span>
+                                </label>
+                                <label class="switch toggle">
+                                  <input type="checkbox" class="form-control">
+                                  <span class="slider round span">YES &nbsp;NO</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6">
+                              <div class="label proratefirstpayment-label" id="prorate">
+                                <label>Pro-rate First Payment Period
+                                  <span class="span-question">
+                                    <img src="images/question.png" alt="question icon">
+                                  </span>
+                                </label>
+                                <label class="switch toggle2">
+                                  <input type="checkbox" class="form-control" checked>
+                                  <span class="slider round span">YES &nbsp;NO</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="label useattendancelimit-label">
+                                <label>Use Attendance Limit?
+                                  <span class="span-question">
+                                    <img src="images/question.png" alt="question icon">
+                                  </span>
+                                </label>
+                                <label class="switch toggle3">
+                                  <input type="checkbox" class="form-control">
+                                  <span class="slider round span">YES &nbsp;NO</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6">
+                              <div class="label expiration-label">
+                                <label>Membership Expiration Date </label>
+                                <div class="exp-days" id="expiration-days">
+                                  <input type="text" class=" form-control exp-input" placeholder="1">
+                                  <select title="select" class="form-select mt-3 form-control exp-select minimal">
+                                    <option>Year(s)</option>
+                                  </select>
+                                </div>
+                                <div>
+                                  <p class="membershipfee-info" id="mem-info">Membership will continue to bill until
+                                    cancelled. </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Edit- Automation -------------------------------------->
+              <div class="container-fluid" id="automation-form">
+                <a href="" id="automation-label" ng-click="automationLabel()" >
+                <div class="membership-edit" id="automation-mem" >
+                  <div class="edit-label">
+                    &nbsp;&nbsp;<b>STEP  3&nbsp;&nbsp;&nbsp;AUTOMATION </b> 
+                        <span class="dropdown-icon" id="drop-automation">
+                          <img src="images/dropdown-icon.png" alt="Dropdown Icon">
+                        </span>
+                  </div>
+                </div>
+              </a>
+                <div ng-show="automation">
+                  <div class="edit-form1">
+                    <form class="form3">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="label autorenew-label">
+                              <label>At Expiration Date,<br> Auto-renew Membership?
+                                <span class="span-question">
+                                  <img src="images/question.png" alt="question icon">
+                                </span>
+                              </label>
+                              <label class="switch toggle4">
+                                <input type="checkbox" class="form-control" checked>
+                                <span class="slider round span">YES &nbsp;NO</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6 automation-select">
+                              <select title="select" class="form-select mt-3 form-control minimal">
+                                <option>After School Arts and Crafts Long Opti...</option>
+                                <option>After School Activities</option>
+                                <option>After School Activities</option>
+                              </select>
+                            </div>
+                            <div class="col-6 automation-select1">
+                              <select title="select" class="form-select form-control minimal">
+                                <option>Do Not Charge Sign-up Fee</option>
+                                <option>Charge Sign-up Fee</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="label upgrade-label">
+                              <label>Expiration and Upgrade Automations
+                                <span class="question">
+                                  <img src="images/question.png" alt="question icon">
+                                </span>
+                              </label>
+                              <div class="add-automation">
+                                <img src="images/plus.png" alt="Add Icon" id="plus">
+                                <label class="add_member">&nbsp;&nbsp;Add Automation</label>
+                              </div>
+                              <div class="automation-input">
+                                <input type="text" class="form-control" placeholder="Expiration and Upgrade: New Expir.."
+                                  required="">
+                                <span>
+                                  <a href="" class="action-icon" id="delete-icon">
+                                    <img src="images/delete.png" alt="Delete Icon">
+                                  </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Edit Discount coupen ------------------>
+              <div class="container-fluid" ng-show="discountform">
+                <a href="" id="discount-label" ng-click="discountLabel()" >
+                <div class="membership-edit" id="discount-mem">
+                  <div class="edit-label">
+                    &nbsp;&nbsp;<b>STEP 4 &nbsp;&nbsp; DISCOUNT CODES</b> 
+                        <span class="dropdown-icon" id="drop-discount">
+                          <img src="images/dropdown-icon.png" alt="Dropdown Icon">
+                        </span>
+                  </div>
+                </div>
+              </a>
+                <div ng-show="discount" >
+                  <div class="edit-form1 edit-discount-form">
+                    <form class="form4">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6">
+                              <label for="title" class="discount-label"><b>Discount Code</b></label>
+                              <input type="text" class="form-control " id="discount-input"
+                                placeholder="Specify discount code name" value="">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6 discount-select">
+                              <select title="select" class="form-select mt-3 form-control discount minimal">
+                                <option> Membership Fee</option>
+                                <option>Sign-up Fee</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6">
+                              <div class="discount-amount">
+                                <button type="button" id="discount-dollar">$</button>
+                                <button type="button" id="discount-percent">%</button>
+                              </div>
+                              <div class="input-group dis-am">
+                                <span class="input-group-text bg-white"> %</span>
+                                <input type="text" class="form-control form-border" id="dis-amount" placeholder="15">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="col-6">
+                              <button type="button" class="button-add" id="button-add">ADD</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Edit condition ---------------------------->
+              <div class="container-fluid" ng-show="conditionform">
+                <a href="" id="condition-label" ng-click="conditionLabel()" >
+                <div class="membership-edit" id="condition-mem">
+                  <div class="edit-label">
+                    &nbsp;&nbsp;<b>STEP 5 &nbsp;&nbsp;CONDITIONS AND ACTIONS</b> 
+                        <span class="dropdown-icon" id="drop-condition">
+                          <img src="images/dropdown-icon.png" alt="Dropdown Icon">
+                        </span>
+                  </div>
+                </div>
+              </a>
+                <div ng-show="condition" >
+                  <div class="edit-form1">
+                    <form class="form5">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="add-eventcondition">
+                              <img src="images/plus.png" alt="Add Icon" id="plus">
+                              <label class="add_member">&nbsp;&nbsp;New event condition</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="condition-event">
+                              <label for="event" class="event"><b>Event &nbsp;&nbsp; 1</b></label>
+                              <span class="eventcondition">
+                                <p>If a member has attended &nbsp;&nbsp;&nbsp;&nbsp;
+                                  <span>
+                                    <input type="text" class="days" title="times" />
+                                  </span>&nbsp;&nbsp; times within the last &nbsp;&nbsp;&nbsp;&nbsp;
+                                  <span>
+                                    <input type="text" class="days" title="times" />
+                                  </span>&nbsp;&nbsp; days
+                                  <span id="dropdown">
+                                    <i class="fa fa-caret-up"></i>
+                                  </span>
+                                </p>
+                                <div class="line"></div>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <span>
+                          <a href="" class="action-icon del">
+                            <img src="images/delete.png" alt="Delete Icon">
+                          </a>
+                        </span>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="add-action">
+                              <img src="images/plus.png" alt="Add Icon" id="plus">
+                              <label class="new-action">
+                                <a href="#" onclick="modal();" class="myBtn" id="myBtn">&nbsp;&nbsp;New action</a>
+                              </label>
+      
+                              <div id="myModal" class="modal">
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                  <div class="pop-label" id="pop-label1">
+                                    <label><b>Add new action</b></label>
+                                  </div>
+                                  <div class="center-line" id="line1"></div>
+                                  <div class="pop-label" id="pop-label2">
+                                    <a href="#" onclick="emailModal();" class="send-action" id="myemailBtn">Email</a>
+                                  </div>
+                                  <div class="center-line" id="line2"></div>
+                                  <div class="pop-label" id="pop-label3">
+                                    <a href="#" class="send-action">Mobile message</a>
+                                  </div>
+                                  <div class="center-line" id="line3"></div>
+                                  <div class="pop-label" id="pop-label4">
+                                    <a href="#" class="send-action">Task</a>
+                                  </div>
+                                  <div class="center-line" id="line4"></div>
+                                  <div class="pop-label" id="pop-label5">
+                                    <button type="button" class="close">
+                                      <a href="#" id="cancel-btn">Cancel</a>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Email modal -->
+                              <div id="myemailModal" class="email-modal">
+                                <div class="emailmodal-content">
+                                  <div class="border email-heading">
+                                    <span class="add-email"> <b>Add an email</b></span>
+                                    <div>
+                                      <a href="" id="close-email">
+                                        <img src="images/cancel.png" alt="cancel Icon">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <form>
+                                    <div class="template">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                                          <div class="col-3">
+                                            <div class="email-label"> Send this email </div>
+                                          </div>
+                                          <div class="col-3">
+                                            <select title="select" class=" form-select sam-template form-control minimal">
+                                              <option>Sample email template2</option>
+                                            </select>
+                                          </div>
+                                          <div class="view">
+                                            <a href="">View &nbsp;/&nbsp;edit</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="template">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                                          <div class="col-3">
+                                            <select title="select" class=" form-select auto-template form-control minimal">
+                                              <option>at the specified</option>
+                                            </select>
+                                          </div>
+                                          <div class="col-3">
+                                            <div class="email-label" id="email-label"> automation start time </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>
+                                  <div class="add-emailcondition">
+                                    <img src="images/plus.png" alt="Add Icon" id="plus-email">
+                                    <label class="email-condition">&nbsp;&nbsp;Add Condition</label>
+                                  </div><br>
+                                  <div>
+                                    <p class="note">(These conditions must also be met in order to send this email)</p>
+                                  </div>
+                                  <div class="custom-switch ">
+                                    <span class="or-condition">OR</span>
+                                    <span class="toggle-condition">
+                                      <label class="switch toggle2">
+                                        <input type="checkbox" class="form-control">
+                                        <span class="slider round span"></span>
+                                      </label>
+                                    </span>
+                                    <span class="and-condition">AND</span>
+                                  </div>
+                                  <div class="choose mob-choose">
+                                    <div class="choosecondition ">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                                          <div class="col-4">
+                                            <div class="circle">
+                                              <span class="number">3</span>
+                                            </div>
+                                            <select title="select" class=" form-select con-on form-control minimal">
+                                              <option>Choose condition</option>
+                                            </select>
+                                            <a href="" class="action-icon copy">
+                                              <img src="images/save.png" alt="Duplicate Icon">
+                                            </a>
+                                            <a href="" class="action-icon copy can">
+                                              <img src="images/cancel.png" alt="cancel Icon">
+                                            </a>
+                                            <a href="" class="action-icon delete" id="mob-delete">
+                                              <img src="images/delete.png" alt="Delete Icon">
+                                            </a>
+                                          </div>
+                                          <div class="con-in">
+                                            <input type="text" class="form-control" placeholder="User action is">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="conditionselect">
+                                    <div class="container-fluid">
+                                      <div class="row">
+                                        <div class="col-4">
+                                          <div class="circle">
+                                            <span class="number">1</span>
+                                          </div>
+                                          <select title="select" class=" form-select con-on form-control minimal">
+                                            <option>Day 1: [SMS Text] This is the...</option>
+                                          </select>
+                                        </div>
+                                        <div class="col-4">
+                                          <select title="select" class=" form-select con-on form-control minimal">
+                                            <option>Read</option>
+                                          </select>
+                                        </div>
+                                        <a href="" class="action-icon delete">
+                                          <img src="images/delete.png" alt="Delete Icon">
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="center-line seperator" id="seperator1"></div>
+                                  <span class="or-condition sep-or">OR</span>
+                                  <div class="center-line seperator" id="seperator2"></div>
+                                  <div class="conditionselect gap">
+                                    <div class="container-fluid">
+                                      <div class="row">
+                                        <div class="col-4">
+                                          <div class="circle">
+                                            <span class="number">2</span>
+                                          </div>
+                                          <select title="select" class=" form-select con-on form-control minimal">
+                                            <option>Day 1: [In-app Text] This is the...</option>
+                                          </select>
+                                        </div>
+                                        <div class="col-4">
+                                          <select title="select" class=" form-select con-on form-control minimal">
+                                            <option>Read</option>
+                                          </select>
+                                        </div>
+                                        <a href="" class="action-icon delete">
+                                          <img src="images/delete.png" alt="Delete Icon">
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="right">
+                                    <button type="button" title="Save" class="btn-action">Save</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Submit -->
+              <div class="act-button" id="act-button">
+                <button type="button" title="cancel" class="btn-action" id="cancel">Cancel</button>
+                <button type="button" title="Save" class="btn-action" id="save">Save</button>
+              </div>
+      
+              <div class="desk">
+                <button type="button" title="cancel" class="btn-action" id="cancel">Cancel</button>
+                <button type="button" title="Save" class="btn-action" id="save">Save</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4"> </div>
+        </div>
+      </div>
+
+    </div>
+</section>
+
+
+
+
+
+</body>
+</html>
